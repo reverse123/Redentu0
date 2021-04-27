@@ -89,6 +89,7 @@ class ProductsImport implements ToArray
         $last_key = array_key_last($array);
         $this->imported_total = 0;
         $this->imported_new = 0;
+        $this->imported_ignored = 0;
         foreach ($array as $k => $row) {
             $insert_records []= ['category0' => $categories0[$row[0]] ?? null, 'category1' => $categories1[$row[1]] ?? null, 'category2' => $categories2[$row[2]] ?? null,
                                  'manufacturer' => $row[3], 'model_code' => $row[5], 'description' => $row[4],
