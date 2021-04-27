@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/import-file', [ImportController::class, 'createForm']);
-Route::post('/import-file', [ImportController::class, 'fileUpload'])->name('fileUpload');;
+Route::post('/import-file', [ImportController::class, 'fileUpload'])->name('fileUpload');
