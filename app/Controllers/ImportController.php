@@ -19,13 +19,11 @@ class ImportController
             'file' => ['bail','required','mimes:xlsx,xls', new MaxUploadFilesize()]
         ]);
 
-        //$path = $req->file('file')->getRealPath();
-
         $products_import = new ProductsImport;
         Excel::import($products_import, $req->file('file'));
 
         return back()->with('success', "Excel файл успішно імпортовано. Опрацьовано записів: " . $products_import->imported_total .
             "; з них імпортовано: " . $products_import->imported_new .
-            "; пропущено: " . $products_import->imported_ignored);
+            "; пропущено (така модель вже була в базі): " . $products_import->imported_ignored);
     }
 }
